@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:sport_controller_app/services/encrypt_service.dart';
 
 class SocketProvider extends ChangeNotifier {
   int _scoreA = 0;
@@ -56,7 +57,7 @@ class SocketProvider extends ChangeNotifier {
       'scoreA': scoreA,
       'scoreB': scoreB,
     };
-    String jsonString = jsonEncode(jsonData);
-    socket?.write(jsonString);
+    var encryptedJson = EncryptService.encryptJson(jsonData);
+    socket?.write(encryptedJson);
   }
 }

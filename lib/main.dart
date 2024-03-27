@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sport_controller_app/providers/socket_provider.dart';
 import 'package:sport_controller_app/router/app_router.dart';
+import 'package:sport_controller_app/services/encrypt_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  EncryptService.initEncryption();
   runApp(const MyApp());
 }
 
