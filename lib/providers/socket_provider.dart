@@ -43,9 +43,9 @@ class SocketProvider extends ChangeNotifier {
         timeout: const Duration(seconds: 5),
       );
 
-      debugPrint('Data sent successfully.');
+      debugPrint('Data sent successfully');
     } catch (e) {
-      debugPrint('error!');
+      debugPrint('Error');
     }
   }
 
@@ -53,7 +53,8 @@ class SocketProvider extends ChangeNotifier {
     // Send data to the server
     Map<String, dynamic> jsonData = {
       'information': information,
-      'score': '$scoreA:$scoreB',
+      'scoreA': scoreA,
+      'scoreB': scoreB,
     };
     String jsonString = jsonEncode(jsonData);
     socket?.write(jsonString);
